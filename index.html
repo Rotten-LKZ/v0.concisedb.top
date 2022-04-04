@@ -3,10 +3,12 @@
   <h1>concisedb</h1>
 </a>
 <p><a href="https://badge.fury.io/js/concisedb"><img src="https://badge.fury.io/js/concisedb.svg" alt="npm version"></a>
+<a href="https://codecov.io/gh/Rotten-LKZ/concisedb"><img src="https://codecov.io/gh/Rotten-LKZ/concisedb/branch/pub/graph/badge.svg?token=6WFQG040FA" alt="codecov"></a>
 <a href="https://github.com/Rotten-LKZ/concisedb"><img src="https://badgen.net/github/stars/Rotten-LKZ/concisedb" alt="GitHub Stars"></a>
 <a href="https://www.npmjs.com/package/concisedb"><img src="https://badgen.net/npm/dt/concisedb" alt="NPM Downloads"></a>
 <a href="https://github.com/Rotten-LKZ/concisedb/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/concisedb" alt="License"></a>
 <a href="https://www.npmjs.com/package/concisedb"><img src="https://img.shields.io/bundlephobia/min/concisedb" alt="Package size"></a></p>
+<p><a href="https://github.com/Rotten-LKZ/concisedb/blob/main/README.md">English</a> | <a href="https://github.com/Rotten-LKZ/concisedb/blob/main/README-zh-Hans.md">简体中文</a></p>
 <p>A database library stores JSON file for Node.js.</p>
 <p><a href="https://github.com/Rotten-LKZ/concisedb/blob/main/update.md">Here</a> is what updated every version if you want to know.</p>
 <p><a href="https://v0.concisedb.top/">API Document</a></p>
@@ -21,8 +23,8 @@
 <ol>
 <li>Install this library</li>
 </ol>
-<p><em>You can also use other package managers like yarn and pnpm instead</em></p>
-<pre><code class="language-bash"><span class="hl-0">npm install concisedb</span>
+<p><em>You can also use other package managers like <code>yarn</code> and <code>pnpm</code> instead</em></p>
+<pre><code class="language-bash"><span class="hl-0">npm install concisedb@0.2.3</span>
 </code></pre>
 <ol start="2">
 <li>Example code</li>
@@ -41,11 +43,11 @@
 <p>  and the non-exist data of the JSON file will use the default <code>data</code> which you give.</p>
 
 <a href="#advanced-usage" id="advanced-usage" style="color: inherit; text-decoration: none;">
-  <h2>Advanced usage</h2>
+  <h3>Advanced usage</h3>
 </a>
 
 <a href="#update-the-data-of-json-file-manually" id="update-the-data-of-json-file-manually" style="color: inherit; text-decoration: none;">
-  <h3>Update the data of JSON file manually</h3>
+  <h4>Update the data of JSON file manually</h4>
 </a>
 <p>If you change the content of JSON file and you want to get the latest content, use <code>db.read()</code> or <code>db.readSync()</code> to get the latest content.</p>
 <pre><code class="language-javascript"><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">ConciseDb</span><span class="hl-0"> = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;concisedb&#39;</span><span class="hl-0">)</span><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">path</span><span class="hl-0"> = </span><span class="hl-3">require</span><span class="hl-0">(</span><span class="hl-4">&#39;path&#39;</span><span class="hl-0">)</span><br/><br/><span class="hl-1">const</span><span class="hl-0"> </span><span class="hl-2">db</span><span class="hl-0"> = </span><span class="hl-1">new</span><span class="hl-0"> </span><span class="hl-3">ConciseDb</span><span class="hl-0">(</span><span class="hl-6">path</span><span class="hl-0">.</span><span class="hl-3">join</span><span class="hl-0">(</span><span class="hl-6">__dirname</span><span class="hl-0">, </span><span class="hl-4">&#39;db.json&#39;</span><span class="hl-0">), { </span><span class="hl-6">test:</span><span class="hl-0"> [] })</span><br/><br/><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-3">log</span><span class="hl-0">(</span><span class="hl-6">db</span><span class="hl-0">.</span><span class="hl-6">data</span><span class="hl-0">)</span><br/><span class="hl-5">// Try changing the content of JSON file</span><br/><span class="hl-3">setTimeout</span><span class="hl-0">(() </span><span class="hl-1">=&gt;</span><span class="hl-0"> {</span><br/><span class="hl-0">  </span><span class="hl-6">db</span><span class="hl-0">.</span><span class="hl-3">readSync</span><span class="hl-0">()</span><br/><span class="hl-0">  </span><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-3">log</span><span class="hl-0">(</span><span class="hl-6">db</span><span class="hl-0">.</span><span class="hl-6">data</span><span class="hl-0">)</span><br/><span class="hl-0">}, </span><span class="hl-7">5000</span><span class="hl-0">)</span><br/><span class="hl-6">db</span><span class="hl-0">.</span><span class="hl-3">read</span><span class="hl-0">()</span>
